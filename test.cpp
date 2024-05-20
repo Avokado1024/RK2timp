@@ -120,7 +120,6 @@ void testRemoveChild() {
   } else {
     std::cout << "Test RemoveChild: FAILED" << std::endl;
   }
-  delete leaf;
 }
 
 void testOperation() {
