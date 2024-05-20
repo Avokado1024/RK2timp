@@ -3,11 +3,16 @@ project(CompositeExample)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(CompositeExample Composite.h)
+# Создаем библиотеку из Composite.h
+add_library(Composite SHARED Composite.h)
+
+# Добавляем исполняемый файл, который использует Composite
+add_executable(CompositeExample main.cpp)
+target_link_libraries(CompositeExample Composite)
 
 # Добавляем тесты
 add_executable(CompositeExampleTests test1.cpp)
-target_link_libraries(CompositeExampleTests CompositeExample)
+target_link_libraries(CompositeExampleTests Composite)
 
 # Добавляем цели для тестов
 add_test(NAME CompositeExampleTests COMMAND CompositeExampleTests)
