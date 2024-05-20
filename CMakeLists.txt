@@ -10,10 +10,8 @@ add_library(Composite SHARED Composite.cpp)
 add_executable(CompositeExample Composite.cpp)
 target_link_libraries(CompositeExample PRIVATE Composite)
 
-# Добавляем тесты
+enable_testing()
 add_executable(CompositeExampleTests test1.cpp)
-target_link_libraries(CompositeExampleTests PRIVATE Composite)
-
-# Добавляем цели для тестов
+target_link_libraries(CompositeExampleTests Composite)
 add_test(NAME CompositeExampleTests COMMAND CompositeExampleTests)
 
