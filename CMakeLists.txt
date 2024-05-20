@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_library(Composite SHARED Composite.cpp)
 
 # Добавляем исполняемый файл, который использует Composite
-add_executable(CompositeExample main.cpp)
+add_executable(CompositeExample Composite.cpp)
 target_link_libraries(CompositeExample PRIVATE Composite)
 
 # Добавляем тесты
