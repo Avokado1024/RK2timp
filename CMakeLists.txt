@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_executable(CompositeExample Composite.cpp)
 enable_testing()
-add_executable(test test.cpp)
-add_test(NAME test COMMAND test)
+add_executable(my_test test.cpp)
+add_test(NAME my_test COMMAND my_test)
