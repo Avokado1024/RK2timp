@@ -4,7 +4,7 @@ project(CompositeExample)
 set(CMAKE_CXX_STANDARD 11)
 
 # Создаем библиотеку из Composite.h
-add_library(Composite SHARED Composite.h)
+add_library(Composite SHARED Composite.cpp)
 
 
 # Добавляем тесты
