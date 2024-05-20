@@ -7,7 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Создаем библиотеку из Composite.h
 add_executable(CompositeExample Composite.cpp)
 enable_testing()
-include_directories(${GTEST_INCLUDE_DIRS})
 # Добавляем тесты
 add_executable(CompositeExampleTests test1.cpp)
 target_link_libraries(CompositeExampleTests Composite)
