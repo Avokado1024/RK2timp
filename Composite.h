@@ -99,17 +99,4 @@ private:
 };
 
 
-int main()
-{
-  Composite composite;
-  
-  for ( unsigned int i = 0; i < 5; i++ )
-  {
-    composite.add( new Leaf( i ) );
-  }
-  
-  composite.remove( 0 );
-  composite.operation();
-  
-  return 0;
-}
+
