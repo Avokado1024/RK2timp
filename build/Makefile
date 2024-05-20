@@ -57,13 +57,23 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kadochnikov/design-patterns-cpp/composite
+CMAKE_SOURCE_DIR = /home/kadochnikov/RK2timp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kadochnikov/design-patterns-cpp/composite/build
+CMAKE_BINARY_DIR = /home/kadochnikov/RK2timp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -87,9 +97,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kadochnikov/design-patterns-cpp/composite/build/CMakeFiles /home/kadochnikov/design-patterns-cpp/composite/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kadochnikov/RK2timp/build/CMakeFiles /home/kadochnikov/RK2timp/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kadochnikov/design-patterns-cpp/composite/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kadochnikov/RK2timp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,6 +127,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Composite
+
+# Build rule for target.
+Composite: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Composite
+.PHONY : Composite
+
+# fast build rule for target.
+Composite/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Composite.dir/build.make CMakeFiles/Composite.dir/build
+.PHONY : Composite/fast
+
+#=============================================================================
 # Target rules for targets named CompositeExample
 
 # Build rule for target.
@@ -129,11 +152,25 @@ CompositeExample/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExample.dir/build.make CMakeFiles/CompositeExample.dir/build
 .PHONY : CompositeExample/fast
 
+#=============================================================================
+# Target rules for targets named CompositeExampleTests
+
+# Build rule for target.
+CompositeExampleTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CompositeExampleTests
+.PHONY : CompositeExampleTests
+
+# fast build rule for target.
+CompositeExampleTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExampleTests.dir/build.make CMakeFiles/CompositeExampleTests.dir/build
+.PHONY : CompositeExampleTests/fast
+
 Composite.o: Composite.cpp.o
 .PHONY : Composite.o
 
 # target to build an object file
 Composite.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Composite.dir/build.make CMakeFiles/Composite.dir/Composite.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExample.dir/build.make CMakeFiles/CompositeExample.dir/Composite.cpp.o
 .PHONY : Composite.cpp.o
 
@@ -142,6 +179,7 @@ Composite.i: Composite.cpp.i
 
 # target to preprocess a source file
 Composite.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Composite.dir/build.make CMakeFiles/Composite.dir/Composite.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExample.dir/build.make CMakeFiles/CompositeExample.dir/Composite.cpp.i
 .PHONY : Composite.cpp.i
 
@@ -150,8 +188,33 @@ Composite.s: Composite.cpp.s
 
 # target to generate assembly for a file
 Composite.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Composite.dir/build.make CMakeFiles/Composite.dir/Composite.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExample.dir/build.make CMakeFiles/CompositeExample.dir/Composite.cpp.s
 .PHONY : Composite.cpp.s
+
+test1.o: test1.cpp.o
+.PHONY : test1.o
+
+# target to build an object file
+test1.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExampleTests.dir/build.make CMakeFiles/CompositeExampleTests.dir/test1.cpp.o
+.PHONY : test1.cpp.o
+
+test1.i: test1.cpp.i
+.PHONY : test1.i
+
+# target to preprocess a source file
+test1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExampleTests.dir/build.make CMakeFiles/CompositeExampleTests.dir/test1.cpp.i
+.PHONY : test1.cpp.i
+
+test1.s: test1.cpp.s
+.PHONY : test1.s
+
+# target to generate assembly for a file
+test1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CompositeExampleTests.dir/build.make CMakeFiles/CompositeExampleTests.dir/test1.cpp.s
+.PHONY : test1.cpp.s
 
 # Help Target
 help:
@@ -161,10 +224,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... Composite"
 	@echo "... CompositeExample"
+	@echo "... CompositeExampleTests"
 	@echo "... Composite.o"
 	@echo "... Composite.i"
 	@echo "... Composite.s"
+	@echo "... test1.o"
+	@echo "... test1.i"
+	@echo "... test1.s"
 .PHONY : help
 
 

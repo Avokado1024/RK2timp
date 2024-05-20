@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/CompositeExample.dir/Composite.cpp.o -o CompositeExample 
+/usr/bin/c++ CMakeFiles/CompositeExample.dir/Composite.cpp.o -o CompositeExample  -Wl,-rpath,/home/kadochnikov/RK2timp/build libComposite.so 

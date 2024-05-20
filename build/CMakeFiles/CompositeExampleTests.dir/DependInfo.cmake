@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/kadochnikov/RK2timp/Composite.cpp" "CMakeFiles/CompositeExample.dir/Composite.cpp.o" "gcc" "CMakeFiles/CompositeExample.dir/Composite.cpp.o.d"
+  "/home/kadochnikov/RK2timp/test1.cpp" "CMakeFiles/CompositeExampleTests.dir/test1.cpp.o" "gcc" "CMakeFiles/CompositeExampleTests.dir/test1.cpp.o.d"
   )
 
 # Targets to which this target links.

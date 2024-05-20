@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/CompositeExampleTests.dir/test1.cpp.o -o CompositeExampleTests  -Wl,-rpath,/home/kadochnikov/RK2timp/build libComposite.so 

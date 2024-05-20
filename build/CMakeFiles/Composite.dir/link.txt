@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -shared -Wl,-soname,libComposite.so -o libComposite.so CMakeFiles/Composite.dir/Composite.cpp.o 
