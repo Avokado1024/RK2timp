@@ -1,11 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
-class Component {
+#include <algorithm>
+class Composite {
 public:
-    virtual ~Component() {};
-    virtual void operation() = 0;
+  // ...
+  void remove(Component* component) {
+    children.erase(std::remove(children.begin(), children.end(), component), children.end());
+  }
+  // ...
+private:
+  std::vector<Component*> children;
 };
 
 class Leaf : public Component {
