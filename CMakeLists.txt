@@ -4,4 +4,6 @@ project(CompositeExample)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(CompositeExample Composite.cpp)
-add_test(NAME test COMMAND test)
+enable_testing()
+add_executable(MyTest test.cpp)
+add_test(NAME MyTest COMMAND MyTest)
