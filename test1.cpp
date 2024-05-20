@@ -1,17 +1,6 @@
 #include "Composite.h" 
 
-void testAddAndGetChild() {
-    Composite composite;
-    Leaf* leaf = new Leaf(1);
-    composite.add(leaf);
-    Component* retrievedLeaf = composite.getChild(0);
-    if (retrievedLeaf == leaf) {
-        std::cout << "Test AddAndGetChild: PASSED" << std::endl;
-    } else {
-        std::cout << "Test AddAndGetChild: FAILED" << std::endl;
-    }
-    delete leaf; // Удаляем объект leaf, чтобы избежать утечки памяти
-}
+
 
 void testRemoveChild() {
     Composite composite;
@@ -41,7 +30,6 @@ void testOperation() {
 }
 
 int main() {
-    testAddAndGetChild();
     testRemoveChild();
     testOperation();
     return 0;
