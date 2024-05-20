@@ -14,19 +14,22 @@ jobs:
         uses: actions/checkout@v2
       - name: Install CMake
         run: sudo apt-get install -y cmake
+      - name: List contents of the directory
+        run: ls -la
+      - name: Verify CMakeLists.txt location
+        run: |
+          ls -la
+          test -e CMakeLists.txt || { echo "CMakeLists.txt not found"; exit 1; }
       - name: Remove existing build directory
         run: rm -rf build
       - name: Create build directory
         run: mkdir build
       - name: Configure CMake
-        working-directory: build
-        run: cmake $GITHUB_WORKSPACE
+        run: cmake -S . -B build
       - name: Build
-        working-directory: build
-        run: cmake --build .
+        run: cmake --build build
       - name: Run tests
-        working-directory: build
-        run: ctest --rerun-failed --output-on-failure
+        run: ctest --test-dir build
       - name: Upload build
         uses: actions/upload-artifact@v2
         with:
