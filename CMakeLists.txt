@@ -6,9 +6,6 @@ set(CMAKE_CXX_STANDARD 11)
 # Создаем библиотеку из Composite.h
 add_library(Composite SHARED Composite.h)
 
-# Добавляем исполняемый файл, который использует Composite
-add_executable(CompositeExample main.cpp)
-target_link_libraries(CompositeExample Composite)
 
 # Добавляем тесты
 add_executable(CompositeExampleTests test1.cpp)
