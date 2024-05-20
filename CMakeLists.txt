@@ -3,7 +3,7 @@ project(CompositeExample)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(CompositeExample Composite.cpp)
+add_executable(CompositeExample Composite.h)
 
 # Добавляем тесты
 add_executable(CompositeExampleTests test1.cpp)
