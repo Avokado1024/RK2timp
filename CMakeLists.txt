@@ -16,4 +16,4 @@ target_link_libraries(CompositeExampleTests PRIVATE Composite)
 
 # Добавляем цели для тестов
 add_test(NAME CompositeExampleTests COMMAND CompositeExampleTests)
-In this corrected version, I've made the following changes:
+
