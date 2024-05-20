@@ -1,21 +1,16 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
-class Composite {
+
+class Component {
 public:
-  // ...
-  void remove(Component* component) {
-    children.erase(std::remove(children.begin(), children.end(), component), children.end());
-  }
-  // ...
-private:
-  std::vector<Component*> children;
+    virtual ~Component() {};
+    virtual void operation() = 0;
 };
 
 class Leaf : public Component {
 public:
-    Leaf(std::string value) : value(value) {}; 
+    Leaf(const std::string& value) : value(value){}
     void operation() override {
         std::cout << value << std::endl;
     }
@@ -28,14 +23,17 @@ public:
     void add(Component* component) {
         children.push_back(component);
     }
+
     void remove(Component* component) {
         children.erase(std::remove(children.begin(), children.end(), component), children.end());
     }
+
     void operation() override {
         for (Component* child : children) {
             child->operation();
         }
     }
+
 private:
     std::vector<Component*> children;
 };
@@ -43,22 +41,25 @@ private:
 
 int main() {
     // Тест 1: Операция с одним листом
+
     Leaf single_leaf("Leaf 1 operation");
     single_leaf.operation(); 
 
-    // Тест 2: Добавление листьев в составной элемент и проверка операции 
+    // Тест 2: Добавление листьев в составной элемент и проверка операций
+
     Leaf leaf_1("Leaf 1 operation"), leaf_2("Leaf 2 operation");
     Composite composite;
     composite.add(&leaf_1);
     composite.add(&leaf_2);
     composite.operation();  
 
-    // Тест 3: Удаление листа из составного элемента и проверка операции 
+    // Тест 3: Удаление листа из составного элемента и проверка операций
+
     Leaf leaf_3("Leaf 3 operation");
     composite.add(&leaf_3);
     composite.operation();
     composite.remove(&leaf_3);  
-    composite.operation();    
+    composite.operation();
 
     return 0;
 }
